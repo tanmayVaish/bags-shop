@@ -22,6 +22,57 @@ const categories = [
   },
 ];
 
+const similar_products = [
+  {
+    id: 1,
+    name: "Trend Fashion Bag",
+    place: "Dhaka",
+    rating: 5,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+  },
+  {
+    id: 2,
+    name: "Trend Fashion Bag",
+    place: "Dhaka",
+    rating: 5,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+  },
+  {
+    id: 3,
+    name: "Trend Fashion Bag",
+    place: "Dhaka",
+    rating: 5,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+  },
+  {
+    id: 4,
+    name: "Trend Fashion Bag",
+    place: "Dhaka",
+    rating: 5,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+  },
+  {
+    id: 5,
+    name: "Trend Fashion Bag",
+    place: "Dhaka",
+    rating: 5,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+  },
+  {
+    id: 6,
+    name: "Trend Fashion Bag",
+    place: "Dhaka",
+    rating: 5,
+    description:
+      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+  },
+];
+
 const HomePage = () => {
   return (
     <DefaultLayout>
@@ -73,6 +124,45 @@ const HomePage = () => {
             </div>
           ))}
         </div>
+      </div>
+      <div className="flex p-10">
+        <div className="w-1/2 flex flex-col items-center justify-center ">
+          <Image src="/bag4.svg" alt="bag4" width={493} height={599} />
+          <div className="bg-orange"></div>
+        </div>
+        <div className="w-1/2">
+          <div className="font-bold text-8xl">
+            We Create Quality Products for You Our Product Lovers
+          </div>
+          <div>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+            consequat.nibh euismod tincidunt ut laoreet dolore magna aliquam
+            erat volutpat.
+          </div>
+        </div>
+      </div>
+      <div className="w-full  px-10 py-20">
+        <div className="text-6xl  ">Similar Products</div>
+        <div className="flex flex-wrap gap-10 w-full justify-center items-center p-10">
+          {similar_products.map((product) => (
+            <div
+              key={product.id}
+              className="flex flex-col gap-4 p-5 bg-secondary w-1/4"
+            >
+              <div className="text-xl">{product.name}</div>
+              <div className="text-sm">{product.place}</div>
+              <div> {product.rating}</div>
+              <div>--------------</div>
+              <div>{product.description}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="w-full  px-10 py-20">
+        <div className="text-6xl  ">Testimonials</div>
       </div>
     </DefaultLayout>
   );
