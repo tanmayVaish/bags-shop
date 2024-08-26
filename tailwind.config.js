@@ -32,6 +32,8 @@ module.exports = {
 
       bg_gray: "#FAFAFA",
 
+      border_primary: "#E3E3E3",
+
       dark_bottom: "#292929",
       black: "#000000",
       white: "#ffffff",
