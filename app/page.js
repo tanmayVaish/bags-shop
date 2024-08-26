@@ -318,11 +318,8 @@ const HomePage = () => {
         </div>
         <Slider {...sliderSettings} className="py-10">
           {similar_products.map((product) => (
-            <div className="w-[200px] p-5 ">
-              <div
-                key={product.id}
-                className="flex flex-col items-center justify-center gap-4 bg-white p-5"
-              >
+            <div key={product.id} className="w-[200px] p-5 ">
+              <div className="flex flex-col items-center justify-center gap-4 bg-white p-5">
                 <Image src={product.img} alt="logo" width={388} height={416} />
                 <div className="text-lg xs:text-xl ">{product.name}</div>
                 <div className="text-sm">{product.description}</div>
@@ -357,11 +354,11 @@ const HomePage = () => {
         </div>
         <Slider ref={slideRef} {...testimonialSliderSettings}>
           {testimonials.map((product) => (
-            <div className="p-5 flex items-center justify-center">
-              <div
-                key={product.id}
-                className="flex flex-col gap-1 p-5 bg-secondary w-[388px] justify-center "
-              >
+            <div
+              key={product.id}
+              className="p-5 flex items-center justify-center"
+            >
+              <div className="flex flex-col gap-1 p-5 bg-secondary w-[388px] justify-center ">
                 <div className="text-lg xs:text-xl font-semibold text-text_quaternary">
                   {product.name}
                 </div>

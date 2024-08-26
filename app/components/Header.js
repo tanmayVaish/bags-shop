@@ -1,37 +1,48 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
-  const navLinks = [
-    {
+  const router = useRouter();
+
+  const navLinks = {
+    "/": {
       id: 1,
       name: "Home",
       path: "/",
     },
-    {
+    "/about": {
       id: 2,
       name: "About Us",
       path: "/about",
     },
-    {
+    "/products": {
       id: 3,
-      name: "Out Products",
+      name: "Our Products",
       path: "/products",
     },
-    {
+    "/contact": {
       id: 4,
       name: "Contact Us",
       path: "/contact",
     },
-  ];
+  };
 
-  const [active, setActive] = useState(1);
+  const handleLinkClick = (path) => {
+    router.push(path);
+  };
+
+  const [active, setActive] = useState(window.location.pathname);
+
+  useEffect(() => {
+    setActive(window.location.pathname);
+  }, []);
 
   return (
     <div className="flex bg-primary px-20 py-10 justify-between sticky">
-      <div className="">
+      <div>
         <Image
           src="/logo.svg"
           width={315}
@@ -41,26 +52,26 @@ export default function Header() {
         />
       </div>
       <div className="items-center gap-4 flex">
-        <div className=" gap-10 hidden xs:flex">
-          {navLinks.map((link, i) => {
-            if (link.id === active) {
+        <div className="gap-10 hidden xs:flex">
+          {Object.entries(navLinks).map((link, i) => {
+            if (link[0] === active) {
               return (
                 <div
                   key={i}
                   className="text-black cursor-pointer font-semibold underline underline-offset-4"
-                  onClick={() => setActive(link.id)}
+                  onClick={() => handleLinkClick(link[0])}
                 >
-                  {link.name}
+                  {link[1].name}
                 </div>
               );
             } else {
               return (
                 <div
-                  onClick={() => setActive(link.id)}
+                  onClick={() => handleLinkClick(link[0])}
                   key={i}
                   className="text-text_secondary cursor-pointer"
                 >
-                  {link.name}
+                  {link[1].name}
                 </div>
               );
             }

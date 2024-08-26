@@ -30,6 +30,8 @@ module.exports = {
       text_tertiary: "#525252",
       text_quaternary: "#172332",
 
+      bg_gray: "#FAFAFA",
+
       dark_bottom: "#292929",
       black: "#000000",
       white: "#ffffff",
