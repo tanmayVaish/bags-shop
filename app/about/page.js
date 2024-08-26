@@ -59,7 +59,7 @@ export default function About() {
           <Image src="/History.svg" alt="History" width={1191} height={601} />
         </div>
         <div className="w-4/5 mx-auto flex flex-col gap-10 text-center">
-          <div>
+          <div className="text-black">
             Mr. Subramanian, driven by his personal struggle with unemployment,
             embarked on a mission to reduce plastic usage, create employment
             opportunities, and empower women. What began as a small venture
@@ -69,7 +69,7 @@ export default function About() {
             while simultaneously uplifting local communities by providing jobs
             and promoting gender equality.
           </div>
-          <div>
+          <div className="text-black">
             Recognizing the need for a broader impact, the company rebranded as
             Onemore, symbolizing their commitment to bringing "one more"
             positive change to the world. This new identity marked the beginning
@@ -77,7 +77,7 @@ export default function About() {
             waste on a larger scale but also to create a ripple effect of
             employment and empowerment across borders.
           </div>
-          <div>
+          <div className="text-black">
             As the younger generation, we are deeply inspired by Mr.
             Subramanian’s vision. We are dedicated to taking his mission
             further—introducing innovative solutions that align with global
@@ -88,12 +88,12 @@ export default function About() {
             positive change on a global stage.
           </div>
         </div>
-        <div className="w-4/5 mx-auto flex gap-5">
+        <div className="w-4/5 mx-auto flex gap-5 flex-col md:flex-row">
           <div className="flex flex-col gap-5 items-start justify-center">
             <div className="text-5xl font-semibold text-text_quaternary">
               Eco-Friendly Cotton Bags
             </div>
-            <div>
+            <div className="text-black">
               Our primary focus is on providing high-quality, environmentally
               friendly cotton bags. We believe in the power of sustainable
               solutions to reduce waste and promote a greener future. Each of
@@ -104,15 +104,15 @@ export default function About() {
               Learn More
             </button>
           </div>
-          <Image src="/History.svg" alt="History" width={700} height={201} />
+          <Image src="/rectangle.svg" alt="History" width={700} height={201} />
         </div>
-        <div className="w-4/5 mx-auto flex gap-5">
-          <Image src="/History.svg" alt="History" width={700} height={201} />
+        <div className="w-4/5 mx-auto flex gap-5 flex-col-reverse md:flex-row">
+          <Image src="/rectangle.svg" alt="History" width={700} height={201} />
           <div className="flex flex-col gap-5 items-start justify-center">
             <div className="text-5xl font-semibold text-text_quaternary">
               Empowering Women
             </div>
-            <div>
+            <div className="text-black">
               Beyond our commitment to the environment, we are deeply dedicated
               to women empowerment. We exclusively employ women, offering them
               meaningful work opportunities that foster independence and
@@ -147,7 +147,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className="w-4/5 mx-auto flex flex-col gap-5 text-center">
+        <div className="w-10/12mx-auto flex flex-col gap-5 text-center">
           <div className="text-5xl font-semibold text-text_quaternary">
             Our Team
           </div>
@@ -155,12 +155,12 @@ export default function About() {
             {team.map((member, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center gap-4 pb-5 bg-primary p-5"
+                className="flex flex-col items-center gap-2 pb-5 bg-primary p-2"
               >
                 <div>
-                  <Image src={member.img} alt="logo" width={388} height={416} />
+                  <Image src={member.img} alt="logo" width={254} height={416} />
                 </div>
-                <div className="text-sm xs:text-base sm:text-lg font-bold">
+                <div className="text-sm xs:text-base sm:text-lg font-bold text-black">
                   {member.name}
                 </div>
                 <div className="text-xs xs:text-base sm:text-sm text-text_secondary">

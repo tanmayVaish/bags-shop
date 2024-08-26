@@ -10,8 +10,7 @@ export default function Footer() {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundImage:
-            "linear-gradient(to top, #18A5A8, #06DFE380, #feb47b00)",
+          backgroundImage: "linear-gradient(to top, #13B7BA, #d6f0f2)",
           backgroundSize: "cover, cover",
           backgroundPosition: "center, center",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -20,7 +19,7 @@ export default function Footer() {
       >
         <div className="w-full xs:w-1/3 flex flex-col gap-10">
           <Image src="/logo.svg" width={315} height={71} alt="logo" />
-          <div>
+          <div className="text-black">
             Li Europan lingues es membres del sam familie. Lor separat
             existentie es un myth. Por scientie, musica, sport etc, litot Europa
             usa li sam vocabular. Li lingues differe solmen in li.
@@ -38,13 +37,13 @@ export default function Footer() {
               Quick Links
             </div>
             <div className="flex flex-col gap-3 items-start">
-              <div>Featured</div>
+              <div className="text-black">Featured</div>
 
-              <div>About Us</div>
+              <div className="text-black">About Us</div>
 
-              <div>Our Products</div>
+              <div className="text-black">Our Products</div>
 
-              <div>Testimonials</div>
+              <div className="text-black">Testimonials</div>
             </div>
           </div>
           <div className="w-full xs:w-1/2 flex justify-start flex-col gap-5 ">
@@ -59,7 +58,7 @@ export default function Footer() {
                   height={20}
                   alt="message"
                 />
-                <div>XXXXXXX@website.com</div>
+                <div className="text-black">XXXXXXX@website.com</div>
               </div>
 
               <div className="flex gap-3 items-center justify-center">
@@ -69,14 +68,14 @@ export default function Footer() {
                   height={20}
                   alt="location"
                 />
-                <div>
+                <div className="text-black">
                   Lorem ipsum dolor sit amet, consectetuer, Chennai 620011
                 </div>
               </div>
 
               <div className="flex gap-3 items-center justify-center">
                 <Image src="/phone.svg" width={20} height={20} alt="phone" />
-                <div>+91 00000 00000</div>
+                <div className="text-black">+91 00000 00000</div>
               </div>
             </div>
           </div>

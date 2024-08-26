@@ -189,7 +189,7 @@ const HomePage = () => {
 
   return (
     <DefaultLayout>
-      <div style={{ width: "100%", height: "100%" }}>
+      <div style={{ width: "100%", height: "100%" }} className="bg-bg_gray">
         <div
           style={{
             top: 0,
@@ -221,8 +221,8 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <div className="w-full text-center px-10 py-20">
-        <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold">
+      <div className="w-full text-center px-10 py-20 bg-bg_gray">
+        <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold text-black">
           Top Categories
         </div>
         <div className="flex flex-wrap justify-center gap-10 p-10">
@@ -234,7 +234,7 @@ const HomePage = () => {
               <div>
                 <Image src={category.img} alt="logo" width={388} height={416} />
               </div>
-              <div className="text-sm xs:text-base sm:text-lg">
+              <div className="text-sm xs:text-base sm:text-lg text-black">
                 {category.name}
               </div>
             </div>
@@ -248,8 +248,7 @@ const HomePage = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundImage:
-            "linear-gradient(to top, #18A5A8, #06DFE380, #feb47b00)",
+          backgroundImage: "linear-gradient(to top, #13B7BA, #d6f0f2)",
           backgroundSize: "cover, cover",
           backgroundPosition: "center, center",
           backgroundRepeat: "no-repeat, no-repeat",
@@ -275,7 +274,7 @@ const HomePage = () => {
           <div className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-text_quaternary">
             We Create Quality Products for You Our Product Lovers
           </div>
-          <div className="text-sm sm:text-base md:text-lg lg:text-xl">
+          <div className="text-sm sm:text-base md:text-lg lg:text-xl text-black">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
             volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
@@ -312,25 +311,27 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="w-full px-10 py-20">
-        <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold">
+      <div className="w-full px-10 py-20 bg-bg_gray">
+        <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold text-black">
           Similar Products
         </div>
         <Slider {...sliderSettings} className="py-10">
           {similar_products.map((product) => (
             <div key={product.id} className="w-[200px] p-5 ">
-              <div className="flex flex-col items-center justify-center gap-4 bg-white p-5">
+              <div className="flex flex-col gap-4 bg-white p-5">
                 <Image src={product.img} alt="logo" width={388} height={416} />
-                <div className="text-lg xs:text-xl ">{product.name}</div>
-                <div className="text-sm">{product.description}</div>
+                <div className="text-lg xs:text-xl text-black ">
+                  {product.name}
+                </div>
+                <div className="text-sm text-black">{product.description}</div>
               </div>
             </div>
           ))}
         </Slider>
       </div>
-      <div className="w-full px-10 py-20 flex flex-col gap-20">
+      <div className="w-full px-10 py-20 flex flex-col gap-20 bg-bg_gray">
         <div className="flex justify-between items-center">
-          <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold">
+          <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold text-black">
             Testimonials
           </div>
           <div className="flex gap-5">
