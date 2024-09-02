@@ -189,9 +189,9 @@ const HomePage = () => {
 
   return (
     <DefaultLayout>
-      <div class="banner">
+      <div className="banner">
         <img src="/bag.png" alt="Banner Image" />
-        <div class="banner-text">
+        <div className="banner-text">
           <div>New Collection</div>
           <div>Cotton Bag</div>
           <p className="banner_description">

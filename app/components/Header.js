@@ -30,6 +30,34 @@ export default function Header() {
     },
   };
 
+  const links = {
+    "/": {
+      id: 1,
+      name: "Home",
+      path: "/",
+    },
+    "/about": {
+      id: 2,
+      name: "About Us",
+      path: "/about",
+    },
+    "/products": {
+      id: 3,
+      name: "Our Products",
+      path: "/products",
+    },
+    "/contact": {
+      id: 4,
+      name: "Contact Us",
+      path: "/contact",
+    },
+    "/bag_collection": {
+      id: 5,
+      name: "Bag Collection",
+      path: "/products",
+    },
+  };
+
   const handleLinkClick = (path) => {
     router.push(path);
   };
@@ -37,7 +65,8 @@ export default function Header() {
   const [active, setActive] = useState(null);
 
   useEffect(() => {
-    setActive(window.location.pathname);
+    const path = window.location.pathname;
+    setActive(links[path] ? links[path].path : null);
   }, []);
 
   return (
@@ -60,7 +89,7 @@ export default function Header() {
       <div className="items-center gap-4 flex">
         <div className="gap-10 hidden xs:flex">
           {Object.entries(navLinks).map((link, i) => {
-            if (link[0] === active) {
+            if (link[1].path === active) {
               return (
                 <div
                   key={i}
