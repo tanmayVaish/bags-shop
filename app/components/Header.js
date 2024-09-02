@@ -34,19 +34,25 @@ export default function Header() {
     router.push(path);
   };
 
-  const [active, setActive] = useState(window.location.pathname);
+  const [active, setActive] = useState(null);
 
   useEffect(() => {
     setActive(window.location.pathname);
   }, []);
 
   return (
-    <div className="flex bg-primary px-20 py-10 justify-between sticky">
+    // <div className="flex bg-primary px-20 py-10 justify-between sticky">
+    <div
+      className="flex bg-primary px-20 py-5 justify-between sticky"
+      style={{ height: "80px" }}
+    >
       <div>
         <Image
           src="/logo.svg"
-          width={315}
-          height={71}
+          // width={315}
+          // height={71}
+          width={175}
+          height={50}
           alt="logo"
           className="cursor-pointer"
         />

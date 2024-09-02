@@ -189,15 +189,32 @@ const HomePage = () => {
 
   return (
     <DefaultLayout>
-      <div style={{ width: "100%", height: "100%" }} className="bg-bg_gray">
+      <div class="banner">
+        <img src="/bag.png" alt="Banner Image" />
+        <div class="banner-text">
+          <div>New Collection</div>
+          <div>Cotton Bag</div>
+          <p className="banner_description">
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+            nonummy nibh euismod tinciduntLorem ipsum dolor sit amet,
+            consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            tincidunt
+          </p>
+          {/* <button className="bg-black text-primary px-10 py-3 text-base md:text-lg lg:text-xl md:px-8 lg:px-12 md:py-4 lg:py-5">
+            Shop Now
+          </button> */}
+          <button className="banner_btn">Shop Now</button>
+        </div>
+      </div>
+
+      {/* <div style={{ width: "100%", height: "100%" }} className="bg-bg_gray">
         <div
           style={{
             top: 0,
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundImage:
-              'linear-gradient(to right, #18A5A8, #06DFE380, #feb47b00), url("/bag_banner.svg")',
+            backgroundImage: 'url("/bag_banner_new.svg")',
             backgroundSize: "cover, cover",
             backgroundPosition: "center, center",
             backgroundRepeat: "no-repeat, no-repeat",
@@ -220,7 +237,7 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="w-full text-center px-10 py-20 bg-bg_gray">
         <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold text-black">
           Top Categories
