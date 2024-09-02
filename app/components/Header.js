@@ -56,6 +56,11 @@ export default function Header() {
       name: "Bag Collection",
       path: "/products",
     },
+    "/details": {
+      id: 6,
+      name: "Details",
+      path: "/products",
+    },
   };
 
   const handleLinkClick = (path) => {
