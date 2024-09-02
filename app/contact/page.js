@@ -4,15 +4,17 @@ import Image from "next/image";
 export default function Contact() {
   return (
     <DefaultLayout>
-      <div className="flex items-center justify-center p-20 bg-bg_gray">
-        <div className="flex w-5/6 justify-between">
-          <Image
-            src="/contact_photo.svg"
-            alt="contact"
-            width={603}
-            height={671}
-          />
-          <div className="flex flex-col gap-10 justify-between">
+      <div className="flex items-center justify-center lg:p-10 p-5 bg-bg_gray w-full">
+        <div className="flex justify-between lg:max-w-[1400px]">
+          <div className="w-1/2 p-10 hidden lg:block">
+            <Image
+              src="/contact_photo.svg"
+              alt="contact"
+              width={603}
+              height={671}
+            />
+          </div>
+          <div className="lg:w-1/2 w-full flex flex-col gap-10 justify-between p-2 lg:p-10">
             <div className="text-7xl font-semibold">Get in touch with us.</div>
             <div className="flex flex-col gap-5">
               <div className="text-xl font-bold">Contact Us</div>
