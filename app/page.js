@@ -191,9 +191,11 @@ const HomePage = () => {
     <DefaultLayout>
       <div className="banner">
         <img src="/bag.png" alt="Banner Image" />
-        <div className="banner-text">
-          <div>New Collection</div>
-          <div>Cotton Bag</div>
+        <div className="banner-text flex flex-col gap-5">
+          <div>
+            <div>New Collection</div>
+            <div>Cotton Bag</div>
+          </div>
           <p className="banner_description">
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
             nonummy nibh euismod tinciduntLorem ipsum dolor sit amet,
@@ -203,7 +205,10 @@ const HomePage = () => {
           {/* <button className="bg-black text-primary px-10 py-3 text-base md:text-lg lg:text-xl md:px-8 lg:px-12 md:py-4 lg:py-5">
             Shop Now
           </button> */}
-          <button className="banner_btn">Shop Now</button>
+          <button className="banner_btn">
+            <div>Shop Now</div>
+            <img src="/right.svg" width={20} height={14} alt="Arrow" />
+          </button>
         </div>
       </div>
 
@@ -239,7 +244,7 @@ const HomePage = () => {
         </div>
       </div> */}
       <div className="w-full text-center px-10 py-20 bg-bg_gray">
-        <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold text-black">
+        <div className="text-3xl xs:text-5xl sm:text-6xl font-semibold text-black">
           Top Categories
         </div>
         <div className="flex flex-wrap justify-center gap-10 p-10">
@@ -254,12 +259,15 @@ const HomePage = () => {
               <div className="text-sm xs:text-base sm:text-lg text-black">
                 {category.name}
               </div>
+              <div className="text-xs sm:text-sm text-text_secondary underline cursor-pointer">
+                See More...
+              </div>
             </div>
           ))}
         </div>
       </div>
       <div
-        className="flex p-10"
+        className="flex p-10 flex-col sm:flex-row"
         style={{
           top: 0,
           left: 0,
@@ -272,7 +280,7 @@ const HomePage = () => {
           zIndex: 1,
         }}
       >
-        <div className="w-full md:w-1/2 hidden xs:flex flex-col lg:flex-row items-center justify-center relative p-8 md:p-12 lg:p-16">
+        <div className="w-full md:w-1/2 flex flex-col lg:flex-row items-center justify-center relative p-8 md:p-12 lg:p-16">
           <Image
             src="/bag4.svg"
             alt="bag4"
@@ -282,7 +290,7 @@ const HomePage = () => {
             style={{ zIndex: 2 }}
           />
           <div
-            className="bg-cream w-[300px] h-[120px] sm:w-[400px] sm:h-[230px] md:w-[450px] md:h-[290px] lg:w-[547px] lg:h-[384px] absolute xs:block top-64 md:top-72 lg:top-80"
+            className="hidden sm:block bg-cream w-[300px] h-[120px] sm:w-[400px] sm:h-[230px] md:w-[450px] md:h-[290px] lg:w-[547px] lg:h-[384px] absolute top-64 md:top-72 lg:top-80"
             style={{ zIndex: 1 }}
           ></div>
         </div>
@@ -300,8 +308,8 @@ const HomePage = () => {
             erat volutpat.
           </div>
           <div className="flex gap-5 md:gap-8 lg:gap-10 text-text_quaternary items-center justify-center">
-            <div className="flex flex-col p-5 items-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl mb-5 font-semibold">
+            <div className="flex flex-col p-0 sm:p-5 items-center">
+              <div className="text-2xl sm:text-4xl md:text-5xl mb-5 font-semibold">
                 {service_data.yoe}+
               </div>
               <div className="text-sm xs:text-base">Years of Experience</div>
@@ -309,8 +317,8 @@ const HomePage = () => {
 
             <div className="h-20 w-[1px] bg-gray" />
 
-            <div className="flex flex-col p-5 items-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl mb-5 font-semibold">
+            <div className="flex flex-col p-0 sm:p-5 items-center">
+              <div className="text-2xl sm:text-4xl md:text-5xl mb-5 font-semibold">
                 {service_data.brand_products}+
               </div>
               <div className="text-sm xs:text-base">Brand Products</div>
@@ -318,8 +326,8 @@ const HomePage = () => {
 
             <div className="h-20 w-[1px] bg-gray" />
 
-            <div className="flex flex-col p-5 items-center">
-              <div className="text-3xl sm:text-4xl md:text-5xl mb-5 font-semibold">
+            <div className="flex flex-col p-0 sm:p-5 items-center">
+              <div className="text-2xl sm:text-4xl md:text-5xl mb-5 font-semibold">
                 {service_data.rating}
               </div>
               <div className="text-sm xs:text-base">Ratings in Clients</div>
@@ -329,13 +337,13 @@ const HomePage = () => {
       </div>
 
       <div className="w-full px-10 py-20 bg-bg_gray">
-        <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold text-black">
+        <div className="text-3xl xs:text-5xl sm:text-6xl font-semibold text-black text-center ">
           Similar Products
         </div>
         <Slider {...sliderSettings} className="py-10">
           {similar_products.map((product) => (
-            <div key={product.id} className="w-[200px] p-5 ">
-              <div className="flex flex-col gap-4 bg-white p-5">
+            <div key={product.id} className="p-5">
+              <div className=" flex flex-col gap-4 bg-white p-5 ">
                 <Image src={product.img} alt="logo" width={388} height={416} />
                 <div className="text-lg xs:text-xl text-black ">
                   {product.name}
@@ -346,9 +354,9 @@ const HomePage = () => {
           ))}
         </Slider>
       </div>
-      <div className="w-full px-10 py-20 flex flex-col gap-20 bg-bg_gray">
+      <div className="w-full px-10 py-20 flex flex-col gap-10 bg-bg_gray">
         <div className="flex justify-between items-center">
-          <div className="text-5xl xs:text-6xl sm:text-6xl font-semibold text-black">
+          <div className="text-3xl xs:text-5xl sm:text-6xl font-semibold text-black px-5">
             Testimonials
           </div>
           <div className="flex gap-5">
@@ -376,7 +384,7 @@ const HomePage = () => {
               key={product.id}
               className="p-5 flex items-center justify-center"
             >
-              <div className="flex flex-col gap-1 p-5 bg-secondary w-[388px] justify-center ">
+              <div className="flex flex-col gap-1 p-5 bg-secondary justify-center ">
                 <div className="text-lg xs:text-xl font-semibold text-text_quaternary">
                   {product.name}
                 </div>

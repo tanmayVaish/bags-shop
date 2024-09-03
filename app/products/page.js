@@ -3,6 +3,13 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import DefaultLayout from "../layouts/DefaultLayout";
+
+import Slider from "react-slick";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./product.css";
+
 const sections = [
   {
     id: 1,
@@ -152,17 +159,51 @@ const sections = [
 
 export default function Products() {
   const router = useRouter();
+
+  const settings = {
+    infinite: true,
+    dots: true,
+    speed: 200,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 4000,
+  };
+
   return (
     <DefaultLayout>
       <div>
         <div className="w-full">
-          <Image
-            className="w-full"
-            src="/bag_section_banner.svg"
-            width={1440}
-            height={420}
-            alt="logo"
-          />
+          <Slider {...settings}>
+            <div>
+              <Image
+                className="w-full"
+                src="/carousal1.svg"
+                width={1440}
+                height={420}
+                alt="logo"
+              />
+            </div>
+            <div>
+              <Image
+                className="w-full"
+                src="/carousal2.svg"
+                width={1440}
+                height={420}
+                alt="logo"
+              />
+            </div>
+            <div>
+              <Image
+                className="w-full"
+                src="/carousal3.svg"
+                width={1440}
+                height={420}
+                alt="logo"
+              />
+            </div>
+          </Slider>
         </div>
         <div className="w-full px-20 py-10">
           <div>
@@ -183,6 +224,30 @@ export default function Products() {
 }
 
 function Section({ id, name, products, router }) {
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div key={id} className="flex flex-col gap-10 py-10">
       <div className="flex justify-between items-center">
@@ -194,21 +259,27 @@ function Section({ id, name, products, router }) {
           View more
         </div>
       </div>
-      <div className="flex flex-wrap gap-10 py-10 items-center justify-center">
-        {products.map((product, i) => (
-          <div key={product.id} className="flex flex-col  gap-4 pb-5">
-            <div className="transition-shadow duration-300 hover:shadow-[5px_5px_2px_0px_rgba(83,196,199)] drop-shadow-md">
-              <Image src={product.img} alt="logo" width={388} height={416} />
-            </div>
+      <div className="">
+        <Slider {...sliderSettings}>
+          {products.map((product, i) => (
+            <div
+              key={product.id}
+              className="flex flex-col gap-4 pb-5 cursor-pointer w-[200px]"
+              onClick={() => router.push(`/details`)}
+            >
+              <div className="transition-shadow duration-300 hover:shadow-[5px_5px_2px_0px_rgba(83,196,199)] drop-shadow-md">
+                <Image src={product.img} alt="logo" width={388} height={416} />
+              </div>
 
-            <div className="text-sm xs:text-base sm:text-lg text-text_secondary">
-              {product.sku}
+              <div className="text-sm xs:text-base sm:text-lg text-text_secondary">
+                {product.sku}
+              </div>
+              <div className="text-sm xs:text-base sm:text-lg text-black">
+                {product.name}
+              </div>
             </div>
-            <div className="text-sm xs:text-base sm:text-lg text-black">
-              {product.name}
-            </div>
-          </div>
-        ))}
+          ))}
+        </Slider>
       </div>
     </div>
   );

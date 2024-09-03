@@ -6,6 +6,8 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./bag_collection.css";
+import { useRouter } from "next/navigation";
 
 const collection = {
   name: "Bag Collection",
@@ -110,8 +112,10 @@ const collection = {
 };
 
 export default function BagCollection() {
+  const router = useRouter();
   const settings = {
     infinite: true,
+    dots: true,
     speed: 200,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -162,7 +166,11 @@ export default function BagCollection() {
 
           <div className="flex flex-wrap gap-10 pt-10 w-full items-center justify-center">
             {collection.products.map((product) => (
-              <div key={product.id} className="flex flex-col  gap-4 pb-5">
+              <div
+                onClick={() => router.push(`/details`)}
+                key={product.id}
+                className="flex flex-col  gap-4 pb-5 cursor-pointer"
+              >
                 <div className="transition-shadow duration-300 hover:shadow-[5px_5px_2px_0px_rgba(83,196,199)] drop-shadow-md">
                   <Image
                     src={product.img}

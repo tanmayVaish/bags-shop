@@ -3,6 +3,20 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import HomeIcon from "@mui/icons-material/Home";
+import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
+import PermContactCalendarIcon from "@mui/icons-material/PermContactCalendar";
+import InfoIcon from "@mui/icons-material/Info";
 
 export default function Header() {
   const router = useRouter();
@@ -68,6 +82,50 @@ export default function Header() {
   };
 
   const [active, setActive] = useState(null);
+  const [open, setOpen] = useState(false);
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
+
+  const DrawerList = (
+    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+      <List>
+        <ListItem disablePadding onClick={() => handleLinkClick("/")}>
+          <ListItemButton>
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Home"} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding onClick={() => handleLinkClick("/about")}>
+          <ListItemButton>
+            <ListItemIcon>
+              <InfoIcon />
+            </ListItemIcon>
+            <ListItemText primary={"About Us"} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding onClick={() => handleLinkClick("/products")}>
+          <ListItemButton>
+            <ListItemIcon>
+              <ShoppingBagIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Out Product"} />
+          </ListItemButton>
+        </ListItem>
+        <ListItem disablePadding onClick={() => handleLinkClick("/contact")}>
+          <ListItemButton>
+            <ListItemIcon>
+              <PermContactCalendarIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Contact Us"} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+    </Box>
+  );
 
   useEffect(() => {
     const path = window.location.pathname;
@@ -77,7 +135,7 @@ export default function Header() {
   return (
     // <div className="flex bg-primary px-20 py-10 justify-between sticky">
     <div
-      className="flex bg-primary px-20 py-5 justify-between sticky"
+      className="flex bg-primary px-3 xs:pl-10 xs:pr-5 py-5 justify-between sticky"
       style={{ height: "80px" }}
     >
       <div>
@@ -92,7 +150,7 @@ export default function Header() {
         />
       </div>
       <div className="items-center gap-4 flex">
-        <div className="gap-10 hidden xs:flex">
+        <div className="gap-10 hidden sm:flex">
           {Object.entries(navLinks).map((link, i) => {
             if (link[1].path === active) {
               return (
@@ -117,10 +175,34 @@ export default function Header() {
             }
           })}
         </div>
-        <div className="w-20 mx-10">
-          <Image src="/search.svg" width={20} height={20} alt="search" />
+        <div className="cursor-pointer">
+          <TextField
+            id="input-with-icon-textfield"
+            placeholder="Search here"
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Image
+                      src="/search.svg"
+                      width={20}
+                      height={20}
+                      alt="search"
+                    />
+                  </InputAdornment>
+                ),
+              },
+            }}
+            variant="outlined"
+          />
+        </div>
+        <div onClick={toggleDrawer(true)} className="cursor-pointer sm:hidden">
+          <MenuIcon />
         </div>
       </div>
+      <Drawer open={open} onClose={toggleDrawer(false)} anchor="right">
+        {DrawerList}
+      </Drawer>
     </div>
   );
 }
