@@ -197,7 +197,7 @@ export default function Header() {
           />
         </div>
         <div onClick={toggleDrawer(true)} className="cursor-pointer sm:hidden">
-          <MenuIcon />
+          <MenuIcon className="text-black" />
         </div>
       </div>
       <Drawer open={open} onClose={toggleDrawer(false)} anchor="right">

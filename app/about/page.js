@@ -141,7 +141,7 @@ export default function About() {
           }}
         >
           <div className="text-white w-2/3 p-20 flex flex-col gap-10 items-start">
-            <div className="font-bold text-6xl xs:text-7xl sm:text-8xl lg:text-8xl">
+            <div className="font-bold text-4xl xs:text-6xl sm:text-7xl lg:text-8xl">
               Join us in making a difference—for the planet and for women
               everywhere.
             </div>

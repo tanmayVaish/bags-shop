@@ -15,9 +15,13 @@ export default function Contact() {
             />
           </div>
           <div className="lg:w-1/2 w-full flex flex-col gap-10 justify-between p-2 lg:p-10">
-            <div className="text-7xl font-semibold">Get in touch with us.</div>
+            <div className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-black">
+              Get in touch with us.
+            </div>
             <div className="flex flex-col gap-5">
-              <div className="text-xl font-bold">Contact Us</div>
+              <div className="text-black text-lg lg:text-xl font-bold">
+                Contact Us
+              </div>
               <form className="flex flex-col gap-5">
                 <div className="flex gap-5">
                   <input
@@ -39,7 +43,7 @@ export default function Contact() {
 
                 <div className="flex gap-2 mb-10">
                   <input type="checkbox" className="w-5 h-5" />
-                  <label className="text-sm">
+                  <label className="text-sm text-black">
                     I agree to the privacy policy
                   </label>
                 </div>

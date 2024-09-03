@@ -173,7 +173,7 @@ export default function Products() {
 
   return (
     <DefaultLayout>
-      <div>
+      <div className="bg-bg_gray">
         <div className="w-full">
           <Slider {...settings}>
             <div>
@@ -205,9 +205,11 @@ export default function Products() {
             </div>
           </Slider>
         </div>
-        <div className="w-full px-20 py-10">
+        <div className="w-full px-5 sm:px-10 lg:px-20 py-10">
           <div>
-            <div className="text-5xl font-bold">One More Bag Collections</div>
+            <div className="text-4xl lg:text-5xl font-bold text-black">
+              One More Bag Collections
+            </div>
             <div className="text-text_secondary text-sm">
               Showing more than 100+ unisex product
             </div>
@@ -225,7 +227,7 @@ export default function Products() {
 
 function Section({ id, name, products, router }) {
   const sliderSettings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -251,10 +253,10 @@ function Section({ id, name, products, router }) {
   return (
     <div key={id} className="flex flex-col gap-10 py-10">
       <div className="flex justify-between items-center">
-        <div className="text-5xl font-bold">{name}</div>
+        <div className="text-3xl lg:text-5xl font-bold text-black">{name}</div>
         <div
           onClick={() => router.push("/bag_collection")}
-          className="text-sm underline cursor-pointer"
+          className="text-sm underline cursor-pointer text-black"
         >
           View more
         </div>

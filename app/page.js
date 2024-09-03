@@ -343,7 +343,7 @@ const HomePage = () => {
         <Slider {...sliderSettings} className="py-10">
           {similar_products.map((product) => (
             <div key={product.id} className="p-5">
-              <div className=" flex flex-col gap-4 bg-white p-5 ">
+              <div className=" flex flex-col gap-4  p-5 ">
                 <Image src={product.img} alt="logo" width={388} height={416} />
                 <div className="text-lg xs:text-xl text-black ">
                   {product.name}

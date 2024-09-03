@@ -6,6 +6,8 @@ import Image from "next/image";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import "./details.css";
+import ShareIcon from "@mui/icons-material/Share";
 
 const product_detail = {
   id: 1,
@@ -40,7 +42,6 @@ const product_detail = {
       sku: "bag-4002",
       name: "Trend Fashion Bag",
       price: 1000,
-
       description:
         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
       img: "/bag.svg",
@@ -49,7 +50,6 @@ const product_detail = {
       id: 3,
       sku: "bag-4003",
       price: 1000,
-
       name: "Trend Fashion Bag",
       description:
         "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
@@ -80,6 +80,7 @@ function a11yProps(index) {
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
+
 export default function Details() {
   const images = product_detail.imgs;
 
@@ -115,6 +116,20 @@ export default function Details() {
     });
   };
 
+  const scrollLeft = () => {
+    galleryRef.current.scrollBy({
+      left: -thumbnailWidth * 3,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRight = () => {
+    galleryRef.current.scrollBy({
+      left: thumbnailWidth * 3,
+      behavior: "smooth",
+    });
+  };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -122,8 +137,8 @@ export default function Details() {
   return (
     <DefaultLayout>
       <div className="w-full justify-center flex flex-col items-center bg-white gap-7">
-        <div className="max-w-[1400px] flex flex-row w-full my-20 mx-5">
-          <div className="w-1/2 p-5">
+        <div className="max-w-[1400px] flex flex-col sm:flex-row w-full my-20 mx-5">
+          <div className="w-full sm:w-1/2 p-5">
             <div className="product-image-container">
               <div className="product-selected-image">
                 <Image
@@ -134,9 +149,18 @@ export default function Details() {
                   layout="responsive"
                 />
               </div>
-              <div className="gallery-container">
-                <div className="gallery-wrapper" ref={galleryRef}>
-                  <div className="gallery flex gap-2 px-5">
+              <div className="gallery-container py-2 relative">
+                <button
+                  className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 rounded-full p-2 z-10"
+                  onClick={scrollLeft}
+                >
+                  &#8249;
+                </button>
+                <div
+                  className="gallery-wrapper overflow-x-auto scrollbar-custom"
+                  ref={galleryRef}
+                >
+                  <div className="gallery flex gap-2">
                     {images.map((src, index) => (
                       <Image
                         key={index}
@@ -147,19 +171,32 @@ export default function Details() {
                         className={`thumbnail ${
                           selectedImage === src ? "selected" : ""
                         } cursor-pointer`}
+                        style={
+                          selectedImage === src
+                            ? { border: "1px solid #000" }
+                            : { opacity: 0.7 }
+                        }
                         onClick={() => handleOnSelect(src, index)}
                       />
                     ))}
                   </div>
                 </div>
+                <button
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 rounded-full p-2 z-10"
+                  onClick={scrollRight}
+                >
+                  &#8250;
+                </button>
               </div>
             </div>
           </div>
-          <div className="w-1/2 p-5">
-            <div className="flex flex-col gap-5 mb-36">
+          <div className="w-full sm:w-1/2 p-5">
+            <div className="flex flex-col gap-5 mb-36 text-black">
               <div className="text-text_secondary">{productDetail.sku}</div>
-              <h1 className="text-6xl font-bold">{productDetail.name}</h1>
-              <p className="text-lg">{productDetail.description}</p>
+              <h1 className="text-4xl xs:text-5xl lg:text-6xl font-bold">
+                {productDetail.name}
+              </h1>
+              <p className="text-xs sm:text-lg">{productDetail.description}</p>
             </div>
             <div>
               <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -175,13 +212,17 @@ export default function Details() {
               </Box>
               <CustomTabPanel value={value} index={0}>
                 <div>
-                  <div className="font-bold text-3xl">Model</div>
-                  <ul className="list-disc px-7 py-5 text-text_secondary">
+                  <div className="font-bold text-2xl sm:text-3xl text-black">
+                    Model
+                  </div>
+                  <ul className="list-disc  px-7 py-5 text-text_secondary">
                     <li>{productDetail.model}</li>
                   </ul>
                 </div>
                 <div>
-                  <div className="font-bold text-3xl">Details</div>
+                  <div className="font-bold text-2xl sm:text-3xl text-black">
+                    Details
+                  </div>
                   <ul className="list-disc px-7 py-5 text-text_secondary">
                     {productDetail.details.map((detail) => (
                       <li key={detail}>{detail}</li>
@@ -189,7 +230,9 @@ export default function Details() {
                   </ul>
                 </div>
                 <div>
-                  <div className="font-bold text-3xl">Washing Instructions</div>
+                  <div className="font-bold text-2xl sm:text-3xl text-black">
+                    Washing Instructions
+                  </div>
                   <div className="px-7 py-5 text-text_secondary">
                     {productDetail.washing_instruction}
                   </div>
@@ -203,7 +246,9 @@ export default function Details() {
               </CustomTabPanel>
             </div>
             <div className="px-5">
-              <div className="font-bold text-3xl">Colors</div>
+              <div className="font-bold text-2xl sm:text-3xl text-black">
+                Colors
+              </div>
               <div className=" py-5 text-text_secondary flex gap-2 ">
                 {productDetail.colors.map((color, i) => (
                   <div
@@ -214,11 +259,12 @@ export default function Details() {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col gap-5 p-4 border border-text_secondary rounded-2xl border-opacity-25">
-              <button className="w-full bg-black text-white rounded-full p-5">
+            <div className="flex flex-col gap-5 p-3 sm:p-4 border border-text_secondary rounded-2xl border-opacity-25">
+              <button className="w-full bg-black text-white rounded-full p-5 text-xs sm:text-lg">
                 Order Now
               </button>
-              <button className="w-full border border-text_secondary bg-wheat text-black p-5 rounded-full border-opacity-25">
+              <button className="w-full border border-black text-black rounded-full p-3 sm:p-4 flex items-center justify-center gap-2 text-xs sm:text-lg">
+                <ShareIcon />
                 Share
               </button>
             </div>
@@ -226,8 +272,10 @@ export default function Details() {
         </div>
 
         <div className="w-full">
-          <div className="font-bold text-4xl text-center">Service Quality</div>
-          <div className="flex gap-10 my-10 w-full items-center justify-around">
+          <div className="font-bold text-3xl sm:text-4xl text-center text-black">
+            Service Quality
+          </div>
+          <div className="flex gap-10 my-10 w-full items-center justify-around flex-wrap">
             <div className="flex gap-5 items-center justify-center">
               <div className="relative inline-block">
                 <Image
@@ -246,8 +294,12 @@ export default function Details() {
                 />
               </div>
               <div>
-                <div className="text-xl font-bold">Best for Health</div>
-                <div className="text-text_secondary">Good for your Health</div>
+                <div className="text-lg sm:text-xl font-bold text-black">
+                  Best for Health
+                </div>
+                <div className="text-text_secondary text-xs sm:text-sm">
+                  Good for your Health
+                </div>
               </div>
             </div>
             <div className="flex gap-5 items-center justify-center">
@@ -268,8 +320,10 @@ export default function Details() {
                 />
               </div>
               <div>
-                <div className="text-xl font-bold">Safe and Quality</div>
-                <div className="text-text_secondary">
+                <div className="text-lg sm:text-xl font-bold text-black">
+                  Safe and Quality
+                </div>
+                <div className="text-text_secondary text-xs sm:text-sm">
                   Gauranteed Quality and Safe
                 </div>
               </div>
@@ -292,8 +346,10 @@ export default function Details() {
                 />
               </div>
               <div>
-                <div className="text-xl font-bold">Online Support</div>
-                <div className="text-text_secondary">
+                <div className="text-lg sm:text-xl font-bold text-black">
+                  Online Support
+                </div>
+                <div className="text-xs sm:text-lg text-text_secondary">
                   24 hour online service
                 </div>
               </div>
@@ -301,12 +357,14 @@ export default function Details() {
           </div>
         </div>
 
-        <div className="w-full max-w-[1400px]">
+        <div className="w-full max-w-[1400px] px-5">
           <div className="flex justify-between items-center">
-            <div className="text-5xl font-bold">You might also like</div>
+            <div className="text-3xl sm:text-4xl font-bold text-black">
+              You might also like
+            </div>
             <div
               onClick={() => router.push("/bag_collection")}
-              className="text-sm underline cursor-pointer"
+              className="text-sm underline cursor-pointer text-black"
             >
               View more
             </div>

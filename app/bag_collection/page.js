@@ -126,7 +126,7 @@ export default function BagCollection() {
 
   return (
     <DefaultLayout>
-      <div className="w-full">
+      <div className="w-full bg-bg_gray">
         <Slider {...settings}>
           <div>
             <Image
@@ -156,9 +156,11 @@ export default function BagCollection() {
             />
           </div>
         </Slider>
-        <div className="w-full px-20 py-10">
+        <div className="w-full px-5 sm:px-10 lg:px-20 py-10">
           <div>
-            <div className="text-5xl font-bold">{collection.name}</div>
+            <div className="text-4xl lg:text-5xl font-bold text-black">
+              {collection.name}
+            </div>
             <div className="text-text_secondary text-sm">
               Showing more than 100+ unisex product
             </div>
