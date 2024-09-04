@@ -169,7 +169,7 @@ export default function BagCollection() {
           <div className="flex flex-wrap gap-10 pt-10 w-full items-center justify-center">
             {collection.products.map((product) => (
               <div
-                onClick={() => router.push(`/details`)}
+                onClick={() => router.push(`/details/${product.sku}`)}
                 key={product.id}
                 className="flex flex-col  gap-4 pb-5 cursor-pointer"
               >

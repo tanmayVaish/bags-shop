@@ -94,6 +94,54 @@ const sections = [
           "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
         img: "/bag.svg",
       },
+      {
+        id: 4,
+        sku: "bag-1004",
+        name: "Trend Fashion Bag",
+        description:
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+        img: "/bag.svg",
+      },
+      {
+        id: 5,
+        sku: "bag-1005",
+        name: "Trend Fashion Bag",
+        description:
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+        img: "/bag.svg",
+      },
+      {
+        id: 6,
+        sku: "bag-1006",
+        name: "Trend Fashion Bag",
+        description:
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+        img: "/bag.svg",
+      },
+      {
+        id: 7,
+        sku: "bag-1004",
+        name: "Trend Fashion Bag",
+        description:
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+        img: "/bag.svg",
+      },
+      {
+        id: 8,
+        sku: "bag-1005",
+        name: "Trend Fashion Bag",
+        description:
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+        img: "/bag.svg",
+      },
+      {
+        id: 9,
+        sku: "bag-1006",
+        name: "Trend Fashion Bag",
+        description:
+          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt",
+        img: "/bag.svg",
+      },
     ],
   },
   {
@@ -270,8 +318,7 @@ function Section({ id, name, products, router }) {
         </div>
       </div>
       <div className="">
-
-        <NewSlider products={products} router={router}/>
+        <NewSlider products={products} router={router} />
 
         {/* <Slider {...sliderSettings}>
           {products.map((product, i) => (

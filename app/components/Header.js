@@ -129,7 +129,9 @@ export default function Header() {
 
   useEffect(() => {
     const path = window.location.pathname;
-    setActive(links[path] ? links[path].path : null);
+    if (path.startsWith("/details/")) {
+      setActive(links["/details"].path);
+    } else setActive(links[path] ? links[path].path : null);
   }, []);
 
   return (
@@ -138,7 +140,13 @@ export default function Header() {
       className="flex bg-primary px-3 xs:pl-10 xs:pr-5 py-5 justify-between sticky"
       style={{ height: "80px" }}
     >
-      <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Image
           src="/logo.svg"
           // width={315}
@@ -196,7 +204,7 @@ export default function Header() {
             variant="outlined"
           />
         </div> */}
-        <div >
+        <div>
           <Image src="/search.svg" width={20} height={20} alt="search" />
         </div>
         <div onClick={toggleDrawer(true)} className="cursor-pointer sm:hidden">

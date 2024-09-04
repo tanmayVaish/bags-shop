@@ -1,14 +1,14 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import DefaultLayout from "../layouts/DefaultLayout";
+import DefaultLayout from "../../layouts/DefaultLayout";
 import Image from "next/image";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import "./details.css";
+import "../details.css";
 import ShareIcon from "@mui/icons-material/Share";
-import NewSlider from "../products/NewSlider";
+import NewSlider from "../../products/NewSlider";
 
 const product_detail = {
   id: 1,
@@ -26,7 +26,7 @@ const product_detail = {
   washing_instruction: "Wash with like colors",
   material: "Cotton",
   price: 1000,
-  imgs: ["/bag1.svg", "/bag2.svg", "/bag3.svg", "/bag1.svg","/bag2.svg"],
+  imgs: ["/bag1.svg", "/bag2.svg", "/bag3.svg", "/bag1.svg", "/bag2.svg"],
   colors: ["#fff", "#C0D1E1", "#517998"],
   similar_products: [
     {
@@ -83,6 +83,7 @@ function a11yProps(index) {
 }
 
 export default function Details() {
+  console.log(window.location.pathname, "window.location.pathname");
   const images = product_detail.imgs;
 
   const [productDetail, setProductDetail] = useState(product_detail);
@@ -359,7 +360,7 @@ export default function Details() {
         </div>
 
         <div className="w-full max-w-[1400px] px-5">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center px-5">
             <div className="text-3xl sm:text-4xl font-bold text-black">
               You might also like
             </div>
@@ -371,7 +372,7 @@ export default function Details() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-10 py-10 items-center justify-center">
+          <div className="flex flex-wrap gap-10 py-10 items-center w-full">
             {/* {product_detail.similar_products.map((product, i) => (
               <div key={product.id} className="flex flex-col  gap-4 pb-5">
                 <div className="transition-shadow duration-300 hover:shadow-[5px_5px_2px_0px_rgba(83,196,199)] drop-shadow-md">
@@ -391,7 +392,7 @@ export default function Details() {
                 </div>
               </div>
             ))} */}
-            <NewSlider products={product_detail.similar_products}/>
+            <NewSlider products={product_detail.similar_products} />
           </div>
         </div>
       </div>
