@@ -138,7 +138,7 @@ export default function Header() {
       className="flex bg-primary px-3 xs:pl-10 xs:pr-5 py-5 justify-between sticky"
       style={{ height: "80px" }}
     >
-      <div>
+      <div style={{display:"flex",alignItems:"center",justifyContent:"center"}}>
         <Image
           src="/logo.svg"
           // width={315}
@@ -149,7 +149,7 @@ export default function Header() {
           className="cursor-pointer"
         />
       </div>
-      <div className="items-center gap-4 flex">
+      <div className="items-center gap-4 flex sm:mr-5">
         <div className="gap-10 hidden sm:flex">
           {Object.entries(navLinks).map((link, i) => {
             if (link[1].path === active) {
@@ -175,7 +175,7 @@ export default function Header() {
             }
           })}
         </div>
-        <div className="cursor-pointer">
+        {/* <div className="cursor-pointer">
           <TextField
             id="input-with-icon-textfield"
             placeholder="Search here"
@@ -195,6 +195,9 @@ export default function Header() {
             }}
             variant="outlined"
           />
+        </div> */}
+        <div >
+          <Image src="/search.svg" width={20} height={20} alt="search" />
         </div>
         <div onClick={toggleDrawer(true)} className="cursor-pointer sm:hidden">
           <MenuIcon className="text-black" />

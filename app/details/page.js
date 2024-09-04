@@ -8,6 +8,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import "./details.css";
 import ShareIcon from "@mui/icons-material/Share";
+import NewSlider from "../products/NewSlider";
 
 const product_detail = {
   id: 1,
@@ -25,7 +26,7 @@ const product_detail = {
   washing_instruction: "Wash with like colors",
   material: "Cotton",
   price: 1000,
-  imgs: ["/bag1.svg", "/bag2.svg", "/bag3.svg", "/bag4.svg"],
+  imgs: ["/bag1.svg", "/bag2.svg", "/bag3.svg", "/bag1.svg","/bag2.svg"],
   colors: ["#fff", "#C0D1E1", "#517998"],
   similar_products: [
     {
@@ -371,7 +372,7 @@ export default function Details() {
           </div>
 
           <div className="flex flex-wrap gap-10 py-10 items-center justify-center">
-            {product_detail.similar_products.map((product, i) => (
+            {/* {product_detail.similar_products.map((product, i) => (
               <div key={product.id} className="flex flex-col  gap-4 pb-5">
                 <div className="transition-shadow duration-300 hover:shadow-[5px_5px_2px_0px_rgba(83,196,199)] drop-shadow-md">
                   <Image
@@ -389,7 +390,8 @@ export default function Details() {
                   {product.name}
                 </div>
               </div>
-            ))}
+            ))} */}
+            <NewSlider products={product_detail.similar_products}/>
           </div>
         </div>
       </div>

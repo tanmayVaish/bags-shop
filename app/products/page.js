@@ -9,11 +9,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./product.css";
+import NewSlider from "./NewSlider";
 
 const sections = [
   {
     id: 1,
-    name: "Trend Fashion Bag",
+    name: "Standard Tote Bags",
     products: [
       {
         id: 1,
@@ -67,7 +68,7 @@ const sections = [
   },
   {
     id: 2,
-    name: "Trend Fashion Bag",
+    name: "Cotton Bags",
     products: [
       {
         id: 1,
@@ -97,7 +98,7 @@ const sections = [
   },
   {
     id: 3,
-    name: "Trend Fashion Bag",
+    name: "Natural Cotton Rope Bags",
     products: [
       {
         id: 1,
@@ -127,7 +128,7 @@ const sections = [
   },
   {
     id: 4,
-    name: "Trend Fashion Bag",
+    name: "Zipper Pouches",
     products: [
       {
         id: 1,
@@ -221,6 +222,13 @@ export default function Products() {
           </div>
         </div>
       </div>
+      {/* New slider start */}
+      {/* <div>
+      {sections.map((section) => (
+        <Section key={section.id} {...section} router={router} />
+      ))}
+      </div> */}
+      {/* New slider end */}
     </DefaultLayout>
   );
 }
@@ -262,7 +270,10 @@ function Section({ id, name, products, router }) {
         </div>
       </div>
       <div className="">
-        <Slider {...sliderSettings}>
+
+        <NewSlider products={products} router={router}/>
+
+        {/* <Slider {...sliderSettings}>
           {products.map((product, i) => (
             <div
               key={product.id}
@@ -281,7 +292,7 @@ function Section({ id, name, products, router }) {
               </div>
             </div>
           ))}
-        </Slider>
+        </Slider> */}
       </div>
     </div>
   );
