@@ -343,9 +343,39 @@ const HomePage = () => {
 
       <div className="w-full px-10 py-20 bg-bg_gray">
         <div className="text-3xl xs:text-5xl sm:text-6xl font-semibold text-black text-center ">
-          Similar Products
+          Why One More?
         </div>
-        <Slider {...sliderSettings} className="py-10">
+        <div className="w-4/5 mx-auto flex flex-col gap-10 text-center mt-16">
+          <div className="text-black">
+            Mr. Subramanian, driven by his personal struggle with unemployment,
+            embarked on a mission to reduce plastic usage, create employment
+            opportunities, and empower women. What began as a small venture
+            named Kanimozhi Garments, in honour of his wife, has grown and
+            evolved over nearly 8 years. During this time, the company has made
+            significant strides in offering sustainable alternatives to plastic,
+            while simultaneously uplifting local communities by providing jobs
+            and promoting gender equality.
+          </div>
+          <div className="text-black">
+            Recognizing the need for a broader impact, the company rebranded as
+            Onemore, symbolizing their commitment to bringing "one more"
+            positive change to the world. This new identity marked the beginning
+            of their global journey, with the aim to not only reduce plastic
+            waste on a larger scale but also to create a ripple effect of
+            employment and empowerment across borders.
+          </div>
+          <div className="text-black">
+            As the younger generation, we are deeply inspired by Mr.
+            Subramanian’s vision. We are dedicated to taking his mission
+            further—introducing innovative solutions that align with global
+            sustainability goals, collaborating with international partners, and
+            expanding our reach to new markets. By doing so, we strive to
+            protect the environment, generate meaningful employment, and empower
+            women around the world, ensuring that Onemore becomes a beacon of
+            positive change on a global stage.
+          </div>
+        </div>
+        {/* <Slider {...sliderSettings} className="py-10">
           {similar_products.map((product) => (
             <div key={product.id} className="p-5">
               <div className=" flex flex-col gap-4  p-5 ">
@@ -357,7 +387,7 @@ const HomePage = () => {
               </div>
             </div>
           ))}
-        </Slider>
+        </Slider> */}
       </div>
       <div className="w-full px-10 py-20 flex flex-col gap-10 bg-bg_gray">
         <div className="flex justify-between items-center">

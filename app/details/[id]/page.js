@@ -366,7 +366,7 @@ export default function Details() {
             </div>
             <div
               onClick={() => router.push("/bag_collection")}
-              className="text-sm underline cursor-pointer text-black"
+              className="text-sm underline cursor-pointer text-black text-nowrap"
             >
               View more
             </div>
