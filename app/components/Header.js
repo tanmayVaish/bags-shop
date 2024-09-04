@@ -112,7 +112,7 @@ export default function Header() {
             <ListItemIcon>
               <ShoppingBagIcon />
             </ListItemIcon>
-            <ListItemText primary={"Out Product"} />
+            <ListItemText primary={"Our Product"} />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding onClick={() => handleLinkClick("/contact")}>

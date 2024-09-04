@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState, useRef } from "react";
+import { useRouter } from "next/navigation";
 
 const categories = [
   {
@@ -124,6 +125,7 @@ const service_data = {
 };
 
 const HomePage = () => {
+  const router = useRouter();
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -205,7 +207,10 @@ const HomePage = () => {
           {/* <button className="bg-black text-primary px-10 py-3 text-base md:text-lg lg:text-xl md:px-8 lg:px-12 md:py-4 lg:py-5">
             Shop Now
           </button> */}
-          <button className="banner_btn">
+          <button
+            className="banner_btn"
+            onClick={() => router.push("/products")}
+          >
             <div>Shop Now</div>
             <img src="/right.svg" width={20} height={14} alt="Arrow" />
           </button>

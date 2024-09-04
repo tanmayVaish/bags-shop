@@ -1,6 +1,10 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
+  const router = useRouter();
   return (
     <div className="sticky-component bottom-0 flex flex-col w-full justify-center">
       <div
@@ -37,13 +41,33 @@ export default function Footer() {
               Quick Links
             </div>
             <div className="flex flex-col gap-3 items-start">
-              <div className="text-black">Featured</div>
+              <div
+                onClick={() => router.push("/contact")}
+                className="text-black cursor-pointer"
+              >
+                Contact Us
+              </div>
 
-              <div className="text-black">About Us</div>
+              <div
+                onClick={() => router.push("/about")}
+                className="text-black cursor-pointer"
+              >
+                About Us
+              </div>
 
-              <div className="text-black">Our Products</div>
+              <div
+                onClick={() => router.push("/products")}
+                className="text-black cursor-pointer"
+              >
+                Our Products
+              </div>
 
-              <div className="text-black">Testimonials</div>
+              <div
+                onClick={() => router.push("/")}
+                className="text-black cursor-pointer"
+              >
+                Testimonials
+              </div>
             </div>
           </div>
           <div className="w-full xs:w-1/2 flex justify-start flex-col gap-5 ">
