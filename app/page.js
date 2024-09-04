@@ -346,7 +346,7 @@ const HomePage = () => {
           Why One More?
         </div>
         <div className="w-4/5 mx-auto flex flex-col gap-10 text-center mt-16">
-          <div className="text-black">
+          <div className="text-black text-xs xs:text-lg sm:text-xl">
             Mr. Subramanian, driven by his personal struggle with unemployment,
             embarked on a mission to reduce plastic usage, create employment
             opportunities, and empower women. What began as a small venture
@@ -356,7 +356,7 @@ const HomePage = () => {
             while simultaneously uplifting local communities by providing jobs
             and promoting gender equality.
           </div>
-          <div className="text-black">
+          <div className="text-black text-xs xs:text-lg sm:text-xl">
             Recognizing the need for a broader impact, the company rebranded as
             Onemore, symbolizing their commitment to bringing "one more"
             positive change to the world. This new identity marked the beginning
@@ -364,7 +364,7 @@ const HomePage = () => {
             waste on a larger scale but also to create a ripple effect of
             employment and empowerment across borders.
           </div>
-          <div className="text-black">
+          <div className="text-black text-xs xs:text-lg sm:text-xl">
             As the younger generation, we are deeply inspired by Mr.
             Subramanian’s vision. We are dedicated to taking his mission
             further—introducing innovative solutions that align with global
